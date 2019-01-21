@@ -1,9 +1,40 @@
-<!doctype html>
-<html>
-<head>
-<title>Hop</title>
-</head>
-<link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-<embed src="main.swf" quality="high" pluginspage="http://www.macromedia.com/go/getfashplayer" type="application/x-shockwave-flash" width="100%" height="100%">
-</html>
+<html><head>
+		<title>Beta | Hop</title>
+		<style>
+			html,
+			body {
+				height:100%;
+				width:100%;
+				margin:0;
+				overflow:hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="./swfobject.js"></script>
+		<script>
+			var swf = "main.swf";
+			var flashvars = {};
+			swfobject.embedSWF(swf, "hop", "100%", window.innerHeight, "10.0.0", false, flashvars, {allowscriptaccess: "always"});
+			window.onresize = function(event) {
+				document.getElementById("hop").height = window.innerHeight;
+			};
+			function JSeditorReady() {
+				document.getElementById("hop").ASsetEditMode(true);
+			}
+		</script>
+		<script>
+			window.onbeforeunload = function (evt) {
+				var message = 'There may be unsaved changes on this page.';
+				if (typeof evt == 'undefined') {
+					evt = window.event;
+				}
+				if (evt) {
+					evt.returnValue = message;
+				}
+				return message;
+			}
+		</script>
+		<object width="100%" name="hop" height="100%" id="hop" type="application/x-shockwave-flash" data="Scratch.swf" style="visibility: visible;"><param name="allowscriptaccess" value="always"></object>
+	
+</body></html>
